@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/music">
+        <file>v-mire-zhivotnyh.mp3</file>
+    </qresource>
+</RCC>

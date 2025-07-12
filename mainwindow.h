@@ -2,50 +2,58 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "med_template.h"
+#include <QDebug>
+#include <QAction>
+#include <QTimeEdit>
+#include <QFrame>
+#include <QLabel>
+#include "pwindow.h"
 
-class QTextEdit;
-class QPushButton;
-class QLineEdit;
-class QLabel;
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void onStep1a_LoadDrugFile();
-    void onStep1b_LoadPriceFile();
-    void onStep2_MergeData();
-    void onStep3_SortData();
-    void onStep4_SaveResults();
-    void onStep5_FindExpired();
+    void on_pushButton_clicked();
+    void on_pushButton_4_clicked();
+    void on_pushButton_2_clicked();
+    void on_label_19_mousePressEvent(QMouseEvent *event);
+    void on_pushButton_7_clicked();
+    void on_pushButton_3_clicked();
+    void on_pushButton_8_clicked();
+    void on_pushButton_9_clicked();
+    void on_pushButton_10_clicked();
+    void on_pushButton_11_clicked();
+    void on_pushButton_12_clicked();
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
-    void setupUi();
-    void createInitialFiles();
-    void updateButtonStates();
+    Ui::MainWindow *ui;
+    QTimer* timer;
+    void MakePuzzle();
+    void setInterfaceStyle();
+    void restartTimer();
+    void stopTimer();
 
-    QTextEdit *m_logDisplay;
-    QPushButton *m_step1aButton;
-    QPushButton *m_step1bButton;
-    QPushButton *m_step2Button;
-    QPushButton *m_step3Button;
-    QPushButton *m_step4Button;
-    QPushButton *m_findButton;
-    QLineEdit *m_dateInput;
-    QLabel *m_statusLabel;
-
-    MED<Drug> m_drugs;
-    MED<Price> m_prices;
-    MED<Med> m_meds;
-
-    bool m_drugFileLoaded;
-    bool m_priceFileLoaded;
+    bool isOnSecondPage = false;
+    bool isOnSecondClick = false;
+    QString difficulte;
+    PuzzleWindow* field;
+    std::string current_picture;
+    std::vector<std::string> Cartoon;
+    QTimeEdit* timeEdit;
+    QAction* restartTimerAction;
+    QAction* stopTimerAction;
 };
 
-#endif // MAINWINDOW_H
+#endif

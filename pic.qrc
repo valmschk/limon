@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/im">
+        <file>im/depositphotos_6631424-stock-illustration-fun-cat.jpg</file>
+        <file>im/depositphotos_13270628-stock-illustration-3d-cartoon-bird.jpg</file>
+        <file>im/depositphotos_13270993-stock-illustration-red-bear.jpg</file>
+        <file>im/depositphotos_223511466-stock-illustration-funny-cartoon-friends.jpg</file>
+        <file>im/depositphotos_503220292-stock-photo-illustration-cute-cartoon-character-mask.jpg</file>
+    </qresource>
+</RCC>
